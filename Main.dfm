@@ -2,8 +2,8 @@ object FormMain: TFormMain
   Left = 0
   Top = 0
   Caption = 'FormMain'
-  ClientHeight = 334
-  ClientWidth = 636
+  ClientHeight = 353
+  ClientWidth = 652
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,26 +16,22 @@ object FormMain: TFormMain
   object btnExecuteTask: TButton
     Left = 0
     Top = 0
-    Width = 636
+    Width = 652
     Height = 25
     Align = alTop
     Caption = 'Execute'
     TabOrder = 0
     OnClick = btnExecuteTaskClick
-    ExplicitLeft = 216
-    ExplicitTop = 72
-    ExplicitWidth = 153
+    ExplicitWidth = 636
   end
   object memo: TMemo
     Left = 0
     Top = 25
-    Width = 636
-    Height = 309
+    Width = 652
+    Height = 328
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 256
-    ExplicitTop = 104
-    ExplicitWidth = 185
-    ExplicitHeight = 89
+    ExplicitWidth = 636
+    ExplicitHeight = 309
   end
 end

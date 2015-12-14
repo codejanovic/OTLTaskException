@@ -15,7 +15,7 @@ type
     fTask: IOmniParallelTask;
 
     procedure HandleOnTaskStop;
-    procedure HandleOnTaskThreadTerminated(const task: IOmniTaskControl);
+    procedure HandleOnTaskThreadTerminated;
     procedure TaskToExecute;
     procedure CleanupTask;
   end;
@@ -47,15 +47,16 @@ end;
 
 procedure TFormMain.HandleOnTaskStop;
 begin
+ if not assigned(fTask.FatalException) then
+    Exit;
+
+  memo.Lines.Add('an exception occured: ' + FTask.DetachException.Message);
   TThread.Queue(nil, CleanupTask);
 end;
 
-procedure TFormMain.HandleOnTaskThreadTerminated(const task: IOmniTaskControl);
+procedure TFormMain.HandleOnTaskThreadTerminated;
 begin
-  if not Assigned(task.FatalException) then
-    Exit;
-
-  memo.Lines.Add('an exception occured: ' + task.FatalException.Message);
+  memo.Lines.Add('thread has been terminated.')
 end;
 
 procedure TFormMain.TaskToExecute;
